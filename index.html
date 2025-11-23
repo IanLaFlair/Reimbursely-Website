@@ -1,30 +1,107 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Reimbursely – IBM watsonx Agent</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-      body {
-        margin: 0;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      }
-      header {
-        padding: 12px 16px;
-        border-bottom: 1px solid #eee;
-      }
-      #root {
-        height: calc(100vh - 50px);
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <strong>Reimbursely</strong> – public demo
-    </header>
+<head>
+  <meta charset="utf-8" />
+  <title>Reimbursely — Public Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- TEMPAT CHAT IBM NYA NANGKRING -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f7f7f7;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .left {
+      width: 45%;
+      padding: 40px;
+      background: white;
+      border-right: 1px solid #eee;
+      overflow-y: auto;
+    }
+
+    .left h1 {
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    .left p {
+      font-size: 17px;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    #root {
+      width: 420px;
+      height: 80vh;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 18px rgba(0,0,0,0.08);
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- LEFT SIDE TEXT -->
+  <div class="left">
+    <h1>Reimbursely — Email Reimbursement Analyzer</h1>
+
+    <p><strong>Currently, the prototype is wired to my private Gmail for testing purposes.</strong></p>
+
+    <p>
+      In a production version, each company could securely connect their own
+      email account (Gmail / Outlook) via OAuth from a web UI, while
+      Reimbursely reuses the same analysis engine.
+    </p>
+
+    <p><strong>How to test:</strong></p>
+
+    <p>
+      You can send an email to  
+      <strong>fak3optic@gmail.com</strong>
+      and set the subject to:
+    </p>
+
+    <p style="font-size: 18px; padding: 10px; background: #fafafa; border-left: 4px solid #007bff;">
+      "Reimbursement for Paying X"
+    </p>
+
+    <p>
+      The body can be empty or just lorem ipsum.  
+      <br>Don't forget to attach a receipt or any file.
+    </p>
+
+    <p>
+      Here is a <strong>dummy attachment</strong> if you want to test:
+      <br><br>
+      👉 <a href="https://drive.google.com/drive/folders/1GWrxnqCjVSfnohya9S9wQeQ_44vwWnBR?usp=sharing" download>Download Dummy Attachment</a>
+    </p>
+  </div>
+
+  <!-- RIGHT SIDE: AGENT -->
+  <div class="right">
     <div id="root"></div>
+  </div>
+
+</div>
 <script>
   window.wxOConfiguration = {
     orchestrationID: "1d6099fcafef4781a9aadfb3372ebd17_d2bed781-ea39-44b5-ab32-93b8542ca481",
