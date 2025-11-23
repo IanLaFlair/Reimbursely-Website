@@ -102,7 +102,7 @@
   </div>
 
 </div>
-<script>
+    <script>
   window.wxOConfiguration = {
     orchestrationID: "1d6099fcafef4781a9aadfb3372ebd17_d2bed781-ea39-44b5-ab32-93b8542ca481",
     hostURL: "https://eu-gb.watson-orchestrate.cloud.ibm.com",
@@ -111,6 +111,7 @@
     crn: "crn:v1:bluemix:public:watsonx-orchestrate:eu-gb:a/1d6099fcafef4781a9aadfb3372ebd17:d2bed781-ea39-44b5-ab32-93b8542ca481::",
     chatOptions: {
         agentId: "4adc276b-2404-4c73-a542-305c1fe4818f", 
+        agentEnvironmentId: "dcb23cdf-e9f6-48df-9707-61b8660258dc",
     }
   };
   setTimeout(function () {
@@ -122,26 +123,7 @@
     document.head.appendChild(script);
   }, 0);                     
 </script>
-    <script>
-      window.wxOConfiguration = {
-        orchestrationID: "1d6099fcafef4781a9aadfb3372ebd17_d2bed781-ea39-44b5-ab32-93b8542ca481",
-        hostURL: "https://eu-gb.watson-orchestrate.cloud.ibm.com",
-        rootElementID: "root",
-        deploymentPlatform: "ibmcloud",
-        crn: "crn:v1:bluemix:public:watsonx-orchestrate:eu-gb:a/1d6099fcafef4781a9aadfb3372ebd17:d2bed781-ea39-44b5-ab32-93b8542ca481::",
-        chatOptions: {
-          agentId: "4adc276b-2404-4c73-a542-305c1fe4818f",
-          agentEnvironmentId: "dcb23cdf-e9f6-48df-9707-61b8660258dc",
-        }
-      };
-      setTimeout(function () {
-        const script = document.createElement('script');
-        script.src = `${window.wxOConfiguration.hostURL}/wxochat/wxoLoader.js?embed=true`;
-        script.addEventListener('load', function () {
-          wxoLoader.init();
-        });
-        document.head.appendChild(script);
-      }, 0);
-    </script>
+
+
   </body>
 </html>
