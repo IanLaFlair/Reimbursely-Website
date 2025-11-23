@@ -7,52 +7,43 @@
 
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #f7f7f7;
-    }
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f7f7f7;
+}
 
-    .container {
-      display: flex;
-      height: 100vh;
-    }
+.container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+}
 
-    .left {
-      width: 45%;
-      padding: 40px;
-      background: white;
-      border-right: 1px solid #eee;
-      overflow-y: auto;
-    }
+.left {
+  width: 45%;
+  padding: 40px;
+  background: white;
+  border-right: 1px solid #eee;
+  overflow-y: auto;
+}
 
-    .left h1 {
-      font-size: 26px;
-      margin-bottom: 20px;
-    }
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
 
-    .left p {
-      font-size: 17px;
-      line-height: 1.5;
-      margin-bottom: 16px;
-    }
+#root {
+  width: 420px;
+  height: 80vh;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 18px rgba(0,0,0,0.08);
+}
 
-    .right {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    #root {
-      width: 420px;
-      height: 80vh;
-      background: white;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 18px rgba(0,0,0,0.08);
-    }
   </style>
 </head>
 
@@ -123,7 +114,5 @@
     document.head.appendChild(script);
   }, 0);                     
 </script>
-
-
   </body>
 </html>
