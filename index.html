@@ -7,112 +7,155 @@
 
   <style>
     body {
-  margin: 0;
-  padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #f7f7f7;
-}
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f7f7f7;
+    }
 
-.container {
-  position: fixed;
-  inset: 0;
-  display: flex;
-}
+    .container {
+      min-height: 100vh;
+      display: flex;
+    }
 
-.left {
-  width: 45%;
-  padding: 40px;
-  background: white;
-  border-right: 1px solid #eee;
-  overflow-y: auto;
-}
+    .left {
+      width: 45%;
+      padding: 40px;
+      background: #ffffff;
+      border-right: 1px solid #eee;
+      overflow-y: auto;
+    }
 
-.right {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
+    .left h1 {
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
 
-#root {
-  width: 420px;
-  height: 80vh;
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 18px rgba(0,0,0,0.08);
-}
+    .left p {
+      font-size: 17px;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
 
+    .right {
+      flex: 1;
+      padding: 20px;
+      /* kosong aja, cuma buat balance layout desktop */
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 768px) {
+      .container {
+        display: block; /* stack ke atas-bawah */
+      }
+
+      .left {
+        width: 100%;
+        padding: 24px 20px;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        height: auto;
+        max-height: none;
+      }
+
+      .left h1 {
+        font-size: 22px;
+        line-height: 1.2;
+      }
+
+      .left p {
+        font-size: 15px;
+      }
+
+      .right {
+        display: none; /* di mobile, panel kanan nggak perlu */
+      }
+    }
   </style>
+
 </head>
 
 <body>
 
-<div class="container">
+  <div class="container">
 
-  <!-- LEFT SIDE TEXT -->
-  <div class="left">
-    <h1>Reimbursely — Email Reimbursement Analyzer</h1>
+    <!-- LEFT SIDE TEXT -->
+    <div class="left">
+      <h1>Reimbursely — Email Reimbursement Analyzer</h1>
 
-    <p><strong>Currently, the prototype is wired to my private Gmail for testing purposes.</strong></p>
+      <p><strong>Currently, the prototype is wired to my private Gmail for testing purposes.</strong></p>
 
-    <p>
-      In a production version, each company could securely connect their own
-      email account (Gmail / Outlook) via OAuth from a web UI, while
-      Reimbursely reuses the same analysis engine.
-    </p>
+      <p>
+        In a production version, each company could securely connect their own
+        email account (Gmail / Outlook) via OAuth from a web UI, while
+        Reimbursely reuses the same analysis engine.
+      </p>
 
-    <p><strong>How to test:</strong></p>
+      <p><strong>How to test:</strong></p>
 
-    <p>
-      You can send an email to  
-      <strong>fak3optic@gmail.com</strong>
-      and set the subject to:
-    </p>
+      <p>
+        You can send an email to  
+        <strong>fak3optic@gmail.com</strong>
+        and set the subject to:
+      </p>
 
-    <p style="font-size: 18px; padding: 10px; background: #fafafa; border-left: 4px solid #007bff;">
-      "Reimbursement for Paying X"
-    </p>
+      <p style="font-size: 18px; padding: 10px; background: #fafafa; border-left: 4px solid #007bff;">
+        "Reimbursement for Paying X"
+      </p>
 
-    <p>
-      The body can be empty or just lorem ipsum.  
-      <br>Don't forget to attach a receipt or any file.
-    </p>
+      <p>
+        The body can be empty or just lorem ipsum.  
+        <br>Don't forget to attach a receipt or any file.
+      </p>
 
-    <p>
-      Here is a <strong>dummy attachment</strong> if you want to test:
-      <br><br>
-      👉 <a href="https://drive.google.com/drive/folders/1GWrxnqCjVSfnohya9S9wQeQ_44vwWnBR?usp=sharing" download>Download Dummy Attachment</a>
-    </p>
+      <p>
+        Here is a <strong>dummy attachment</strong> if you want to test:
+        <br><br>
+        👉 <a href="https://drive.google.com/drive/folders/1GWrxnqCjVSfnohya9S9wQeQ_44vwWnBR?usp=sharing" target="_blank">
+          Download Dummy Attachment
+        </a>
+      </p>
+    </div>
+
+    <!-- RIGHT SIDE: just visual space on desktop -->
+    <div class="right"></div>
+
   </div>
 
-  <!-- RIGHT SIDE: AGENT -->
-  <div class="right">
-    <div id="root"></div>
-  </div>
+  <!-- ROOT UNTUK IBM CHAT – DIPISAH DARI CONTAINER BIAR GA NGEDORONG KONTEN -->
+  <div id="root"></div>
 
-</div>
-    <script>
-  window.wxOConfiguration = {
-    orchestrationID: "1d6099fcafef4781a9aadfb3372ebd17_d2bed781-ea39-44b5-ab32-93b8542ca481",
-    hostURL: "https://eu-gb.watson-orchestrate.cloud.ibm.com",
-    rootElementID: "root",
-    deploymentPlatform: "ibmcloud",
-    crn: "crn:v1:bluemix:public:watsonx-orchestrate:eu-gb:a/1d6099fcafef4781a9aadfb3372ebd17:d2bed781-ea39-44b5-ab32-93b8542ca481::",
-    chatOptions: {
-        agentId: "4adc276b-2404-4c73-a542-305c1fe4818f", 
+  <!-- IBM EMBED SCRIPT (AUTO OPEN) -->
+  <script>
+    window.wxOConfiguration = {
+      orchestrationID: "1d6099fcafef4781a9aadfb3372ebd17_d2bed781-ea39-44b5-ab32-93b8542ca481",
+      hostURL: "https://eu-gb.watson-orchestrate.cloud.ibm.com",
+      rootElementID: "root",
+      deploymentPlatform: "ibmcloud",
+      crn: "crn:v1:bluemix:public:watsonx-orchestrate:eu-gb:a/1d6099fcafef4781a9aadfb3372ebd17:d2bed781-ea39-44b5-ab32-93b8542ca481::",
+
+      /* ⬇️ ini yang bikin chat auto-open fullscreen overlay */
+      showLauncher: true, // no launcher button, langsung buka chat
+      defaultLanguage: "en",
+      chatOptions: {
+        agentId: "4adc276b-2404-4c73-a542-305c1fe4818f",
         agentEnvironmentId: "dcb23cdf-e9f6-48df-9707-61b8660258dc",
-    }
-  };
-  setTimeout(function () {
-    const script = document.createElement('script');
-    script.src = `${window.wxOConfiguration.hostURL}/wxochat/wxoLoader.js?embed=true`;
-    script.addEventListener('load', function () {
+      },
+      layout: {
+        // form: "fullscreen-overlay",      // penting supaya showLauncher false ke-trigger
+        showOrchestrateHeader: true
+      }
+    };
+
+    setTimeout(function () {
+      const script = document.createElement('script');
+      script.src = `${window.wxOConfiguration.hostURL}/wxochat/wxoLoader.js?embed=true`;
+      script.addEventListener('load', function () {
         wxoLoader.init();
-    });
-    document.head.appendChild(script);
-  }, 0);                     
-</script>
-  </body>
+      });
+      document.head.appendChild(script);
+    }, 0);
+  </script>
+
+</body>
 </html>
